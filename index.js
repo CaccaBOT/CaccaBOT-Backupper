@@ -5,10 +5,9 @@ const scheduler = require('node-schedule')
 dotenv.config()
 const bot = new Telegraf(process.env.BOT_TOKEN)
 const path = '/home/ubuntu/CaccaBOT/storage/db.sqlite3'
-
+let userId = null
 bot.start((ctx) => {
-    const userId = ctx.update.message.from.id
-
+    userId = ctx.update.message.from.id
     if (userId != process.env.AUTHORIZED_USER_ID) {
         ctx.reply('You\'re not allowed to use this bot')
     }
