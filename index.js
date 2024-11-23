@@ -9,6 +9,7 @@ bot.start((ctx) => {
     userId = ctx.update.message.from.id
     if (userId != process.env.AUTHORIZED_USER_ID) {
         ctx.reply('You\'re not allowed to use this bot')
+        return
     }
     ctx.reply('Backups enabled')
     ctx.replyWithDocument({
