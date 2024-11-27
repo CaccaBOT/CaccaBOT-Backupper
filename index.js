@@ -25,7 +25,7 @@ bot.start((ctx) => {
 
 function startScheduler() {
     isSchedulerActive = true
-    scheduler.scheduleJob('0 2 * * *', async () => {
+    scheduler.scheduleJob('0 */2 * * *', async () => {
         await bot.telegram.sendDocument(process.env.AUTHORIZED_USER_ID, {
             source: path,
             filename: 'db.sqlite3'
